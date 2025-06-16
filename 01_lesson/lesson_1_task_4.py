@@ -1,4 +1,4 @@
-def print_greeting(name):
-    print("Привет, " + name)
+def print_greeting():
+    print("Привет, мир!")
 
-print_greeting("мир!")
+print_greeting()
