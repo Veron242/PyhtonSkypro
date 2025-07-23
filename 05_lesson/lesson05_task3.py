@@ -1,4 +1,4 @@
-#Поле ввода
+# Поле ввода
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
