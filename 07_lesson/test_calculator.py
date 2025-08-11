@@ -12,15 +12,16 @@ def test_slow_calculator():
     calculator = CalculatorPage(driver)
 
     # Установка задержки и выполнение вычисления
-    calculator.set_delay("45")
+    calculator.set_delay("delay")
     calculator.click_button("7")
     calculator.click_button("+")
     calculator.click_button("8")
     calculator.click_button("=")
 
     # Проверка результата
-    result = calculator.get_result()
+    calculator.get_result()
     assert result == "15", f"Ожидался результат 15, получено {result}"
 
     # Закрытие браузера
     driver.quit()
+

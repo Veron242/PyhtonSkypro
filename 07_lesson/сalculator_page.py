@@ -16,13 +16,13 @@ class CalculatorPage:
     def set_delay(self, delay):
         delay_input = self.driver.find_element(By.CSS_SELECTOR, "#delay")
         delay_input.clear()
-        delay_input.send_keys("45")
+        delay_input.send_keys(delay)
 
     def click_button(self, button_text):
         button = self.driver.find_element(By.XPATH, f"//span[text()='{button_text}']")
         button.click()
 
-    def get_result(self):
-        wait = WebDriverWait(self.driver, 50)
+    def get_result(self, delay):
+        wait = WebDriverWait(self.driver, delay)
         wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".screen"), "15"))
-        return self.driver.find_element(By.CSS_SELECTOR, ".screen").text
+
