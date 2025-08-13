@@ -25,4 +25,3 @@ class CalculatorPage:
     def get_result(self, delay):
         wait = WebDriverWait(self.driver, delay)
         wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".screen"), "15"))
-
