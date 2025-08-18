@@ -49,7 +49,7 @@ def test_get_project():
     assert data["id"] == id_project
 
 # Проверяем неудачную попытку создания проекта:
-# Пытается создать проект с пустым названием
+# Пытаемся создать проект с пустым названием
 # Проверяем, что сервер вернул ошибку 400
 def test_create_project_negative():
     body = {
@@ -80,7 +80,7 @@ def test_change_project_negative():
 
 # Проверяем ошибку авторизации:
 # Делаем GET-запрос без авторизационных заголовков
-# Проверяем, что получаем статус 401
+# Проверяем, что получен статус 401
 def test_get_project_negative():
     response = requests.get(base_url + "/projects/")
     assert response.status_code == 401
