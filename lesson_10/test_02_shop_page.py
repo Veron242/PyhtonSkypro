@@ -19,11 +19,17 @@ def driver():
 @allure.title("Проверка оформления покупки в магазине saucedemo")
 @allure.description("Тест проверяет корректность оформления покупки товаров в магазине одежды")
 
+
 def test_sauce_demo_purchase(driver):
     with allure.step("Инициализация страницы магазина"):
         shop = SauceDemoPage(driver)
+
+    with allure.step("Открытие страницы магазина"):
+            shop.open()  # Явный вызов открытия страницы
+
     with allure.step("Авторизация на сайте"):
         shop.login("standard_user", "secret_sauce")
+
     with allure.step("Добавление товаров в корзину"):
         items_to_add = [
             "Sauce Labs Backpack",

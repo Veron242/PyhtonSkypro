@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class SauceDemoPage:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, 15)
 
     @allure.step("Открытие страницы магазина")
     def open(self):
@@ -26,7 +26,7 @@ class SauceDemoPage:
 
     @allure.step("Добавление товара {product_name} в корзину")
     def add_product(self, product_name):
-        item_xpath = f"//div[text()='{product_name}']/ancestor::div[@class='inventory_item']//button"
+        item_xpath = f"//div[contains(text(), '{product_name}')]/ancestor::div[contains(@class, 'inventory_item')]//button"
         add_button = self.wait.until(EC.element_to_be_clickable((By.XPATH, item_xpath)))
         add_button.click()
 
